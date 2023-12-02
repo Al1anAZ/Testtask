@@ -7,7 +7,7 @@ const Header: React.FC = () => {
       <div className="container">
         <div className={classes.header_body}>
           <img
-            src="/imgs/UI/Logo.svg"
+            src="./imgs/UI/Logo.svg"
             alt="header_body_img"
             className={classes.header_img}
           />

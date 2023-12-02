@@ -51,7 +51,7 @@ const App = () => {
   });
   //Стейт отвечающий за отображение прелоудера регистрации при запросе
   const [isRegisteringUser, setisRegisteringUser] =
-    useState<RegisteringUserStatus>({ status: "complete" });
+    useState<RegisteringUserStatus>({ status: "pending" });
   //Стейт отвечающий за отображение прелоудера пользователей при запросе
   const [isFetchingUsers, setIsFetchingUsers] = useState<boolean>(false);
   //Стейт отвечающий за массив позиций
