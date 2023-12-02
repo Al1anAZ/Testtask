@@ -231,7 +231,7 @@ const App = () => {
                 </div>
                 {/* Если мы ожидаем ответ, то показываем прелоадер */}
                 <img
-                  src="/imgs/UI/preLoader.svg"
+                  src="./imgs/UI/preLoader.svg"
                   alt="preLoader"
                   style={{ display: `${isFetchingUsers ? "block" : "none"}` }}
                   className="main_body_working_withget_content_preLoader"
@@ -260,7 +260,7 @@ const App = () => {
                 {/* //Прелоадер регистрации пользователя */}
                 {isRegisteringUser.status === "loading" ? (
                   <img
-                    src="/imgs/UI/preLoader.svg"
+                    src="./imgs/UI/preLoader.svg"
                     alt="preLoader"
                     className="main_body_working_withget_content_preLoader"
                   />

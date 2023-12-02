@@ -8,6 +8,8 @@ const Header: React.FC = () => {
         <div className={classes.header_body}>
           <img
             src="./imgs/UI/Logo.svg"
+            width={104}
+            height={26}
             alt="header_body_img"
             className={classes.header_img}
           />
