@@ -32,7 +32,7 @@ const Card: React.FC<IUser> = ({ name, email, phone, position, photo }) => {
       {/* Отображение изображения по умолчанию, если возникла ошибка при загрузке фото */}
       {errorImg ? (
         <img
-          src="/imgs/UI/photo-cover.svg"
+          src="./imgs/UI/photo-cover.svg"
           alt="card_img"
           className={classes.card_img}
           width={70}
