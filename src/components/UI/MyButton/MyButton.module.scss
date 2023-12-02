@@ -1,0 +1,22 @@
+@import "../../../globstyles/values.scss";
+
+.mybtn {
+  background-color: $PrimaryColor;
+  border: none;
+  width: 100px;
+  height: 34px;
+  border-radius: 80px;
+  &:disabled {
+    color: white;
+    cursor: not-allowed;
+    background-color: rgba(180, 180, 180, 1);
+  }
+}
+// включить ховет только на устройствах с курсором
+@media (hover: hover) {
+  .mybtn {
+    &:not([disabled]):hover {
+      background-color: rgba(255, 227, 2, 1);
+    }
+  }
+}

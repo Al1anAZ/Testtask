@@ -1,0 +1,168 @@
+@import "./values.scss";
+/*Миксин для адапт. шрифта*/
+// $maxWidth: 1366;
+// @mixin adaptiv-font($pcSize, $mobSize) {
+//   $addSize: $pcSize - $mobSize;
+//   $maxWidth: $maxWidth - 320;
+//   font-size: calc(
+//     #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+//   );
+// }
+
+/* Обнуление CSS */
+* {
+  box-sizing: border-box;
+}
+/* Обнуление отступов и полей */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+figure,
+hr,
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+}
+
+/* Обнуление шрифтов */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Обнуление гиперссылок */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Обнуление списков */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Обнуление формы */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+/* Обнуление таблиц */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Обнуление изображений */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Обнуление кнопок */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Обнуление формы */
+input,
+select,
+textarea {
+  font-size: 16px;
+  outline: none;
+}
+
+/* Обнуление стандартных стилей для HTML5-элементов */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* Добавление коррекций для некоторых браузеров */
+body {
+  line-height: 1;
+}
+
+/* Устранение багов в IE */
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body {
+  font-family: "Nunito", sans-serif, serif;
+  font-weight: 400;
+  height: 100%;
+}
+h1 {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
+}
+// h2 {
+//   @include adaptiv-font(38, 26);
+//   line-height: 113%;
+// }
+// h3 {
+//   @include adaptiv-font(26, 18);
+//   line-height: 113%;
+// }
+// h4 {
+//   @include adaptiv-font(19, 14);
+//   line-height: 113%;
+// }
+p {
+  font-size: 16px;
+  line-height: 26px;
+}

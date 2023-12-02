@@ -1,0 +1,14 @@
+@import "../../globstyles/values.scss";
+
+.header {
+  &_body {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    &_btns_box {
+      display: flex;
+      gap: 10px;
+    }
+  }
+}

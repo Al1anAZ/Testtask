@@ -1,0 +1,181 @@
+@import "../../../globstyles/values.scss";
+
+// Общий стиль для контейнера инпута
+.myInput_box {
+  // Стили для инпута с типом text
+  &_text {
+    position: relative;
+
+    // Стили для текстового инпута
+    &_input {
+      width: 380px;
+      height: 54px;
+      border: 1px solid $LightGray;
+      border-radius: 4px;
+      padding-left: 16px;
+      background-color: transparent;
+    }
+
+    // Общие стили для лейбла (плейсхолдера) и хелпера
+    // Устанавливаем некоторые общие свойства
+    &_label,
+    &_helper {
+      pointer-events: none;
+      position: absolute;
+      color: rgba(126, 126, 126, 1);
+      left: 12px;
+    }
+
+    // Стили для лейбла
+    &_label {
+      top: 19px;
+      background-color: $BackGroundColor;
+      transition: all 0.2s;
+
+      // Анимация, когда инпут активен
+      &.active {
+        top: -5px;
+        font-size: 12px;
+        padding: {
+          left: 4px;
+          right: 4px;
+        }
+      }
+    }
+    // Стили для хелпера
+    &_helper {
+      font-size: 12px;
+      bottom: -16px;
+    }
+  }
+
+  // Стили для инпута с типом radio
+  &_radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+
+    // Стили для радио-кнопки
+    &_input {
+      cursor: pointer;
+      position: relative;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      border: 1px solid $LightGray;
+      border-radius: 50%;
+
+      // Отключение стандартных стилей
+      appearance: none;
+
+      // Стиль для выбранного состояния
+      &:checked {
+        border-color: $SecondaryColor;
+
+        // Стиль для кружка внутри радио-кнопки
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: $SecondaryColor;
+        }
+      }
+    }
+
+    // Стили для лейбла рядом с радио-кнопкой
+    &_label {
+      cursor: pointer;
+      margin-left: 12px;
+    }
+  }
+
+  // Стили для инпута с типом file
+  &_file {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 90px;
+
+    // Стили для скрытого input type="file"
+    &_input {
+      cursor: pointer;
+      position: absolute;
+      font-size: 100px;
+      opacity: 0;
+      right: 0;
+      top: 0;
+    }
+
+    // Стили для контейнера, содержащего лейбл и кнопку
+    &_label {
+      display: flex;
+      padding: 10px 0px;
+
+      // Стили для кнопки внутри лейбла
+      &_button {
+        padding: 15px 14px;
+        border: 1px solid rgba(0, 0, 0, 0.87);
+        border-radius: 4px 0 0 4px;
+      }
+
+      // Стили для контейнера с именем файла
+      &_file {
+        &_box {
+          display: flex;
+          align-items: center;
+          width: 299px;
+          color: rgba(126, 126, 126, 1);
+          padding-left: 16px;
+          border: {
+            right: 1px solid $LightGray;
+            top: 1px solid $LightGray;
+            bottom: 1px solid $LightGray;
+          }
+          border-radius: 0 4px 4px 0;
+        }
+        &_errormes {
+          pointer-events: none;
+          position: absolute;
+          color: $Error;
+          left: 15px;
+          font-size: 12px;
+          bottom: 4px;
+        }
+      }
+    }
+  }
+}
+// Стиль для отображения ошибки
+.error {
+  .myInput_box_text {
+    &_input {
+      border-width: 2px;
+      border-color: $Error;
+    }
+
+    &_label,
+    &_helper {
+      color: $Error;
+    }
+  }
+  .myInput_box_file_label {
+    &_button,
+    &_file_box {
+      border-width: 2px;
+      border-color: $Error;
+    }
+  }
+}
+@media screen and (max-width: 490px) {
+  .myInput_box_text_input {
+    width: 328px;
+  }
+  .myInput_box_file_label_file_box {
+    width: 246px;
+  }
+}

@@ -1,0 +1,76 @@
+@import "../../globstyles/values.scss";
+
+.card {
+  &_body {
+    // Стили для основного контейнера карточки
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    flex: 25%;
+  }
+
+  &_img {
+    // Стили для изображения в карточке
+    margin: {
+      right: auto;
+      left: auto;
+      bottom: 20px;
+    }
+    border-radius: 50%;
+    align-self: center;
+  }
+
+  &_name,
+  &_desc_job,
+  &_desc_email {
+    // Общие стили для имени, описания работы и электронной почты
+    position: relative;
+    display: inline-block;
+  }
+
+  &_name {
+    // Дополнительные стили для имени
+    margin-bottom: 20px;
+  }
+
+  &_tooltip {
+    // Стили для подсказки
+    visibility: hidden;
+    overflow-wrap: break-word;
+    background-color: rgba(0, 0, 0, 0.87);
+    color: #fff;
+    border-radius: 6px;
+    max-width: 200px;
+    padding: {
+      top: 3px;
+      bottom: 3px;
+      left: 16px;
+      right: 16px;
+    }
+    position: absolute;
+    z-index: 1;
+    left: 30%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+}
+
+@media (hover: hover) {
+  .card {
+    &_name,
+    &_desc_job,
+    &_desc_email {
+      &:hover .card_tooltip {
+        // Показывать подсказку при наведении на имя, описание работы или электронную почту
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .card_body {
+    flex: 40%;
+  }
+}

@@ -1,0 +1,176 @@
+@import "./globstyles/values.scss";
+@import "./globstyles/default.scss";
+
+// Общие стили для контейнера страницы
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+// Стили для главного контейнера страницы
+.main {
+  // Лендинг
+  &_body {
+    background-color: $BackGroundColor;
+
+    // Лендинговый блок
+    &_landing {
+      // Затемнение фона с изображением
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../public/imgs/landing.webp");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      height: 650px;
+      // Для приближения фона
+      background-size: auto 150%;
+      max-width: 1170px;
+      margin: auto;
+      // Позиционирование контента в центре
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // Контент внутри лендинга
+      &_contnent {
+        max-width: 380px;
+        text-align: center;
+        color: white;
+
+        // Заголовок лендинга
+        &_title {
+          margin-bottom: 21px;
+        }
+
+        // Текст лендинга
+        &_text {
+          margin-bottom: 32px;
+        }
+      }
+    }
+
+    // Стили для блока GET request
+    &_working_withget {
+      margin-top: 140px;
+      text-align: center;
+
+      &_content {
+        // Заголовок блока GET request
+        &_title {
+          margin-bottom: 50px;
+        }
+        // Контейнер для карточек в блоке GET request
+        &_cardsbox {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 29px 29px;
+          margin-bottom: 50px;
+          transition: gap 0.5s;
+        }
+        &_success {
+          text-align: center;
+          &_img {
+            margin: {
+              left: auto;
+              right: auto;
+              top: 50px;
+            }
+          }
+        }
+        // Стили для прелоудера
+        &_preLoader {
+          margin: {
+            top: 100px;
+            right: auto;
+            left: auto;
+            bottom: 100px;
+          }
+        }
+      }
+    }
+
+    // Стили для блока POST request
+    &_working_withpost {
+      margin-top: 140px;
+      padding-bottom: 100px;
+
+      // Контент в блоке POST request
+      &_content {
+        // Заголовок блока POST request
+        &_title {
+          text-align: center;
+        }
+
+        // Форма в блоке POST request
+        &_form {
+          max-width: 380px;
+          display: flex;
+          flex-direction: column;
+          margin: {
+            top: 50px;
+            left: auto;
+            right: auto;
+          }
+
+          // Выравнивание кнопки по центру
+          > button {
+            align-self: center;
+          }
+
+          // Контейнер для ввода данных в форме
+          &_inputs {
+            // Контейнеры для текстового и радио-вида ввода
+            &_text,
+            &_radio {
+              display: flex;
+              flex-direction: column;
+            }
+
+            // Стили для текстового ввода
+            &_text {
+              gap: 50px;
+            }
+
+            // Стили для радио-вида ввода
+            &_radio {
+              margin-top: 43px;
+
+              // Параграф для радио-вида ввода
+              &_p {
+                margin-bottom: 11px;
+              }
+            }
+
+            // Стили для файлового ввода
+            &_file {
+              margin-top: 47px;
+              margin-bottom: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 904px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 704px;
+  }
+  .main_body_working_withget_content_cardsbox {
+    gap: 16px 16px;
+  }
+}
+@media screen and (max-width: 490px) {
+  .main_body_working_withget_content_title {
+    max-width: 300px;
+  }
+  .container {
+    max-width: 328px;
+  }
+}
