@@ -27,14 +27,6 @@ const MyInput: React.FC<MyInputProps> = ({
 }) => {
   //Стейт отвечающий за анимацию инпута txt
   const [labelAnim, setLabelAnim] = useState<boolean>(false);
-  //функция для получения названия файла
-  function getFileNameFromPath(filePath: string) {
-    const pathParts = filePath.split(/[\\\/]/);
-
-    const fileName = pathParts[pathParts.length - 1];
-
-    return fileName;
-  }
   return (
     <>
       {/* Условный рендеринг на основе типа ввода */}
@@ -122,7 +114,7 @@ const MyInput: React.FC<MyInputProps> = ({
                 style={{ color: `${chosenImg && "black"}` }}
               >
                 {chosenImg
-                  ? getFileNameFromPath(chosenImg)
+                  ? chosenImg
                   : `Upload your photo `}
               </p>
             </div>

@@ -32,7 +32,7 @@ type formData = {
   email: string;
   validEmail: boolean;
   position_id: number;
-  photo: string;
+  photo: File | null;
   validPhoto: boolean;
 };
 
@@ -47,7 +47,7 @@ const App = () => {
     validEmail: false,
     position_id: 1,
     validPhoto: false,
-    photo: "",
+    photo: null
   });
   //Стейт отвечающий за отображение прелоудера регистрации при запросе
   const [isRegisteringUser, setisRegisteringUser] =
@@ -66,27 +66,34 @@ const App = () => {
   const handleRegistrUser = async () => {
     try {
       setisRegisteringUser({ status: "loading" });
+  
       const response = await axios.get<Itoken>(
         "https://frontend-test-assignment-api.abz.agency/api/v1/token",
       );
+
       const form = new FormData();
       form.append("name", formData.name);
       form.append("email", formData.email);
       form.append("phone", formData.phone);
       form.append("position_id", String(formData.position_id));
-      form.append("photo", formData.photo);
-      const { request } = await axios.post(
+      if (formData.photo !== null) {
+        form.append("photo", formData.photo);
+      }
+  
+      const postData = await axios.post(
         "https://frontend-test-assignment-api.abz.agency/api/v1/users",
-        form,
+       form,
         {
           headers: {
-            Token: response.data.token,
+            'Token': response.data.token
           },
         },
       );
+  
       setNextRequest(
         "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6",
       );
+  
       fetchUsers(true);
       setisRegisteringUser({ status: "complete" });
     } catch (e) {
@@ -94,6 +101,7 @@ const App = () => {
       setisRegisteringUser({ status: "error" });
     }
   };
+  
   // Хендлер для заполнения формы + валидация данных
   function handleSetFormData(
     action: string,
@@ -139,7 +147,7 @@ const App = () => {
 
             setFormData({
               ...formData,
-              photo: e.target.value,
+              photo: file,
               validPhoto: !imageValid,
             });
           };
@@ -260,7 +268,7 @@ const App = () => {
                 {/* //Прелоадер регистрации пользователя */}
                 {isRegisteringUser.status === "loading" ? (
                   <img
-                    src="./imgs/UI/preLoader.svg"
+                    src="/imgs/UI/preLoader.svg"
                     alt="preLoader"
                     className="main_body_working_withget_content_preLoader"
                   />
@@ -271,7 +279,7 @@ const App = () => {
                       User successfully registered
                     </h1>
                     <img
-                      src="/imgs/UI/success-image.svg"
+                      src="./imgs/UI/success-image.svg"
                       alt="success-image"
                       className="main_body_working_withget_content_success_img"
                     />
@@ -335,7 +343,7 @@ const App = () => {
                         legend="photo"
                         type="file"
                         name="img"
-                        chosenImg={formData.photo}
+                        chosenImg={formData.photo?.name}
                         label="Designer"
                         handle={handleSetFormData}
                       />
