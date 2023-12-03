@@ -268,7 +268,7 @@ const App = () => {
                 {/* //Прелоадер регистрации пользователя */}
                 {isRegisteringUser.status === "loading" ? (
                   <img
-                    src="/imgs/UI/preLoader.svg"
+                    src="./imgs/UI/preLoader.svg"
                     alt="preLoader"
                     className="main_body_working_withget_content_preLoader"
                   />
