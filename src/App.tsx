@@ -102,7 +102,7 @@ const App = () => {
     }
   };
   
-  // Хендлер для заполнения формы + валидация данных
+  // Хендлер для заполнения формы и валидация данных
   function handleSetFormData(
     action: string,
     e: React.ChangeEvent<HTMLInputElement>,
